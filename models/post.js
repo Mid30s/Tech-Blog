@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
+// create Post model
 class Post extends Model {}
 
 Post.init(
@@ -26,11 +27,6 @@ Post.init(
         key: "id",
       },
     },
-    // date_created: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: DataTypes.NOW,
-    // },
   },
   {
     sequelize,
