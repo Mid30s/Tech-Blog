@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
+const { Post, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Get all posts for dashboard
@@ -33,7 +33,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     const post = postData.get({ plain: true });
 
     res.render("editPost", {
-      ...post,
+      post,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
