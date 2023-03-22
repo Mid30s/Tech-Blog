@@ -1,8 +1,9 @@
+// Login form handler function
 async function loginFormHandler(event) {
   event.preventDefault();
 
-  const email = document.querySelector("#email-login").value.trim();
-  const password = document.querySelector("#password-login").value.trim();
+  const email = document.querySelector("#login-email").value.trim();
+  const password = document.querySelector("#login-password").value.trim();
 
   if (email && password) {
     const response = await fetch("/api/users/login", {
@@ -22,12 +23,13 @@ async function loginFormHandler(event) {
   }
 }
 
+// Signup form handler function
 async function signupFormHandler(event) {
   event.preventDefault();
 
-  const name = document.querySelector("#name-signup").value.trim();
-  const email = document.querySelector("#email-signup").value.trim();
-  const password = document.querySelector("#password-signup").value.trim();
+  const name = document.querySelector("#signup-name").value.trim();
+  const email = document.querySelector("#signup-email").value.trim();
+  const password = document.querySelector("#signup-password").value.trim();
 
   if (name && email && password) {
     const response = await fetch("/api/users", {
@@ -41,6 +43,7 @@ async function signupFormHandler(event) {
     });
 
     if (response.ok) {
+      console.log("success");
       document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
@@ -48,9 +51,12 @@ async function signupFormHandler(event) {
   }
 }
 
+// Event listener for login form
 document
   .querySelector("#login-form")
   .addEventListener("submit", loginFormHandler);
+
+// Event listener for signup form
 document
   .querySelector("#signup-form")
   .addEventListener("submit", signupFormHandler);
