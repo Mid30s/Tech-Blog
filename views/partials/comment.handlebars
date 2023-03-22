@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h1 class="mb-4">{{post.title}}</h1>
+    <p>{{post.body}}</p>
+
+    <hr class="my-4">
+
+    <h2 class="mb-4">Comments</h2>
+    {{#each comments as |comment|}}
+        <div class="card mb-3">
+            <div class="card-body">
+                <p class="card-text">{{body}}</p>
+            </div>
+            <div class="card-footer text-muted">
+                Posted on {{format_date created_at}} by {{user.username}}
+            </div>
+        </div>
+    {{/each}}
+
+    {{#if logged_in}}
+        <form id="comment-form">
+            <input type="hidden" name="post_id" value="{{post.id}}">
+            <div class="mb-3">
+                <label for="body" class="form-label">Add a comment</label>
+                <textarea class="form-control" name="body" id="body" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Comment</button>
+        </form>
+    {{else}}
+        <p>Please <a href="/login">log in</a> to leave a comment.</p>
+    {{/if}}
+</div>

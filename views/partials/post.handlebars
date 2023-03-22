@@ -1,10 +1,26 @@
 <div class="card mb-4">
-    <div class="card-header">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-6">
         <h3>{{title}}</h3>
+      </div>
+
+      <div class="col-md-6 text-md-end">
+        <p><small>Posted by
+            {{user.name}}
+            on
+            {{format_date createdAt}}</small></p>
+      </div>
     </div>
-    <div class="card-body">
-        <p>{{content}}</p>
-        <br>
-        <p><small>Posted by {{user.name}} on {{format_date createdAt}}</small></p>
-    </div>
+  </div>
+
+  <div class="card-body">
+    <p>{{content}}</p>
+  </div>
+
+  <div class="card-footer">
+     <a href="/post/{{id}}" class="card-footer-item">
+     {{comments.length}} {{format_plural "comment" comments.length}}
+     </a>
+  </div>
 </div>
