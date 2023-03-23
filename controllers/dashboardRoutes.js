@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User } = require("../models");
+const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Get all posts for dashboard
@@ -9,7 +9,7 @@ router.get("/", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
-      include: [{ model: User, attributes: ["name"] }],
+      include: [{ model: User, attributes: ["name"] }, { model: Comment }],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
