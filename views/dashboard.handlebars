@@ -5,11 +5,33 @@
             <h2 class="mt-4 mb-4">Dashboard</h2>
             <a href="/dashboard/newPost" class="btn btn-primary mb-4">New Post</a>
             {{#each posts as |post|}}
-                {{> post}}
+                <div class="card my-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="/post/{{post.id}}" target="_blank" class="post-title text-decoration-none fw-bold">{{post.title}}</a>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <p><small>Posted by {{post.user.name}} on {{format_date post.createdAt}}</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>{{post.content}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="/post/{{post.id}}" class="card-footer-item">
+                                {{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+                            </div>
 
-                <div class="has-text-right m-3">
-                    <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-                </div>
+                            <div class="col-md-6">
+                                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+                            </div>
+                        </div>       
+                    </div>
+                </div>  
             {{else}}
                 <p>No posts available</p>
             {{/each}}

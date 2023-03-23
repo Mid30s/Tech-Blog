@@ -19,3 +19,13 @@
 #signup-password {
     width: 100%;
 }
+
+.post-title{
+    padding: 10px;
+}
+
+/* Change the color and underline when the link is hovered */
+.post-title:hover {
+    text-decoration: underline;
+    color: #16a855;
+}
