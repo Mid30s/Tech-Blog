@@ -1,0 +1,11 @@
+.login-signup {
+    width: 75%;
+}
+
+#login-email,
+#login-password,
+#signup-name,
+#signup-email,
+#signup-password {
+    width: 50%;
+}

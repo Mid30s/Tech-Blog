@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container login-signup">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12" id="login-section">
       <h2 class="mt-4 mb-4">Login</h2>
       <form id="login-form">
-        <div class="form-group">
+        <div class="form-group my-3">
           <label for="login-email">Email address</label>
           <input type="email" class="form-control" id="login-email" placeholder="Email">
         </div>
@@ -11,10 +11,11 @@
           <label for="login-password">Password</label>
           <input type="password" class="form-control" id="login-password" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary mt-3">Login</button>
       </form>
+      <button type="button" class="btn btn-secondary" id="show-signup">Sign Up</button>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-12 d-none" id="signup-section">
       <h2 class="mt-4 mb-4">Sign Up</h2>
       <form id="signup-form">
         <div class="form-group">
@@ -29,13 +30,11 @@
           <label for="signup-password">Password</label>
           <input type="password" class="form-control" id="signup-password" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
       </form>
+      <button type="button" class="btn btn-secondary" id="show-login">Login</button>
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/js/login.js"></script>
-   
-
-
-

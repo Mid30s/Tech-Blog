@@ -51,6 +51,18 @@ async function signupFormHandler(event) {
   }
 }
 
+$(document).ready(function () {
+  $("#show-signup").on("click", function () {
+    $("#login-section").addClass("d-none");
+    $("#signup-section").removeClass("d-none");
+  });
+
+  $("#show-login").on("click", function () {
+    $("#signup-section").addClass("d-none");
+    $("#login-section").removeClass("d-none");
+  });
+});
+
 // Event listener for login form
 document
   .querySelector("#login-form")
