@@ -13,12 +13,13 @@ router.get("/", withAuth, async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-
+    console.log("rendering dashboard");
     res.render("dashboard", {
       posts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });
