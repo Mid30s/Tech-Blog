@@ -2,11 +2,18 @@
   <div class="card-header">
     <div class="row">
       <div class="col-md-6">
-        <a href="/post/{{id}}" target="_blank">{{title}}</a>
+        <a
+          href="/post/{{id}}"
+          target="_blank"
+          class="post-title text-decoration-none fw-bold"
+        >{{title}}</a>
       </div>
 
       <div class="col-md-6 text-md-end">
-        <p><small>Posted by {{user.name}} on {{format_date createdAt}}</small></p>
+        <p><small>Posted by
+            {{user.name}}
+            on
+            {{format_date createdAt}}</small></p>
       </div>
     </div>
   </div>
@@ -16,7 +23,8 @@
   </div>
 
   <div class="card-footer">
-     <a href="/post/{{id}}" class="card-footer-item">
-     {{comments.length}} {{format_plural "comment" comments.length}}</a>
+    <a href="/post/{{id}}" class="card-footer-item">
+      {{comments.length}}
+      {{format_plural "comment" comments.length}}</a>
   </div>
 </div>
