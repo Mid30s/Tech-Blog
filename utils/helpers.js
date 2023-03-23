@@ -1,3 +1,5 @@
+const Handlebars = require("handlebars");
+
 module.exports = {
   format_date: (date) => {
     if (!date) {
@@ -15,3 +17,10 @@ module.exports = {
     return word;
   },
 };
+
+Handlebars.registerHelper("eq", function (a, b, options) {
+  if (a === b) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});

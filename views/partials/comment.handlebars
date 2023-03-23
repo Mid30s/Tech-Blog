@@ -11,4 +11,8 @@
           {{format_date createdAt}}</small></p>
     </div>
   </div>
+  
+  {{#eq comment.user_id  ../req.session.user_id}}
+    <button data-comment-id="{{id}}" class="btn btn-danger btn-sm delete-comment">Delete</button>
+  {{/eq}}
 </li>

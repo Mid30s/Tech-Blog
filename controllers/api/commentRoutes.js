@@ -48,9 +48,12 @@ router.post("/", withAuth, async (req, res) => {
 // Delete a comment by id (with authentication)
 router.delete("/:id", withAuth, async (req, res) => {
   try {
+    console.log("Deleting comment with id:", req.params.id);
+    console.log("User id from session:", req.session.user_id);
     const commentData = await Comment.destroy({
       where: {
         id: req.params.id,
+        user_id: req.session.user_id,
       },
     });
 
