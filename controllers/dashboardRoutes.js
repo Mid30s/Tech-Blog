@@ -23,12 +23,12 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
-// New post route
-router.get("/new-post", withAuth, (req, res) => {
-  res.render("new-post", {
-    logged_in: req.session.logged_in,
-  });
-});
+// // New post route
+// router.get("/new-post", withAuth, (req, res) => {
+//   res.render("new-post", {
+//     logged_in: req.session.logged_in,
+//   });
+// });
 
 // edit post by id
 router.get("/edit/:id", withAuth, async (req, res) => {
