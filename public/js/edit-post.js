@@ -2,7 +2,7 @@ async function editPostHandler(event) {
   event.preventDefault();
 
   const title = document.querySelector("#title").value.trim();
-  const body = document.querySelector("#body").value.trim();
+  const content = document.querySelector("#body").value.trim();
   const id = document.querySelector("#post-id").value;
 
   if (title && body) {
@@ -10,7 +10,7 @@ async function editPostHandler(event) {
       method: "PUT",
       body: JSON.stringify({
         title,
-        body,
+        content,
       }),
       headers: { "Content-Type": "application/json" },
     });

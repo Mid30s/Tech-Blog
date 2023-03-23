@@ -1,11 +1,21 @@
 .login-signup {
-    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
 }
+  
+
+#login-section, #signup-section {
+    width: 90%;
+}
+  
 
 #login-email,
 #login-password,
 #signup-name,
 #signup-email,
 #signup-password {
-    width: 50%;
+    width: 100%;
 }

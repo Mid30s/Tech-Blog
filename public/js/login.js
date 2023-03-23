@@ -50,16 +50,21 @@ async function signupFormHandler(event) {
     }
   }
 }
-
 $(document).ready(function () {
   $("#show-signup").on("click", function () {
-    $("#login-section").addClass("d-none");
-    $("#signup-section").removeClass("d-none");
+    $("#login-section").fadeOut(300, function () {
+      $("#login-section").addClass("d-none");
+      $("#signup-section").removeClass("d-none");
+    });
+    $("#left-section").addClass("order-md-2");
+    $("#right-section").addClass("order-md-1");
   });
 
   $("#show-login").on("click", function () {
     $("#signup-section").addClass("d-none");
-    $("#login-section").removeClass("d-none");
+    $("#login-section").fadeIn(300).removeClass("d-none");
+    $("#left-section").removeClass("order-md-2");
+    $("#right-section").removeClass("order-md-1");
   });
 });
 

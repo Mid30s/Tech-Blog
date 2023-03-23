@@ -2,9 +2,9 @@ async function newPostHandler(event) {
   event.preventDefault();
 
   const title = document.querySelector("#post-title").value.trim();
-  const body = document.querySelector("#post-body").value.trim();
+  const content = document.querySelector("#post-body").value.trim();
 
-  if (title && body) {
+  if (title && content) {
     const response = await fetch("/api/posts", {
       method: "post",
       body: JSON.stringify({
