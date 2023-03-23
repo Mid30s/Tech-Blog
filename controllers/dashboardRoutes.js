@@ -35,8 +35,27 @@ router.get("/newPost", withAuth, (req, res) => {
 router.get("/edit/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["name"] }],
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+        {
+          model: Comment,
+          include: [
+            {
+              model: User,
+              attributes: ["name"],
+            },
+          ],
+        },
+      ],
     });
+
+    if (!postData) {
+      res.status(404).json({ message: "No post found with this id" });
+      return;
+    }
 
     const post = postData.get({ plain: true });
 

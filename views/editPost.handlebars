@@ -55,12 +55,17 @@
         <button type="submit" class="btn btn-primary">Add Comment</button>
     </form>
     <hr>
+
     <h2 class="mt-4">Comments</h2>
     {{#if post.comments.length}}
-        {{> comments post.comments}}
+    <ul class="list-group">
+        {{#each post.comments as |comment|}}
+            {{> comment}}
+        {{/each}}
+    </ul>
     {{else}}
-        <p>No comments yet.</p>
-    {{/if}}
+    <p>No comments yet.</p>
+    {{/if}}  
 </div>
 
 <script src="/js/edit-post.js"></script>
