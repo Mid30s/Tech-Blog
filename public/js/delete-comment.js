@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.ok) {
           location.reload();
         } else {
-          alert("Failed to delete comment");
+          alert("🚫🚫🚫You can not delete other's comment!🚫🚫🚫");
         }
       } catch (error) {
         console.error(error);
