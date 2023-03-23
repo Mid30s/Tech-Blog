@@ -1,19 +1,19 @@
 <div class="container mt-4">
     <h1 class="mb-4">{{post.title}}</h1>
-    <p>{{post.body}}</p>
-
+    <p>{{post.content}}</p>
+    <p class="text-muted">Posted on {{format_date post.createdAt}} by {{post.user.name}}</p>
     <hr class="my-4">
 
     <h2 class="mb-4">Comments</h2>
     {{#each comments as |comment|}}
-        <div class="card mb-3">
-            <div class="card-body">
-                <p class="card-text">{{body}}</p>
-            </div>
-            <div class="card-footer text-muted">
-                Posted on {{format_date created_at}} by {{user.username}}
-            </div>
+    <section class="comment">
+        <div class="meta">
+            {{comment.user.name}} on {{format_date comment.createdAt}}
         </div>
+        <div class="text">
+            {{comment.comment_text}}
+        </div>
+    </section>
     {{/each}}
 
     {{#if logged_in}}

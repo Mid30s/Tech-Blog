@@ -20,17 +20,32 @@ router.get("/", async (req, res) => {
   }
 });
 
-//get blog post by id
+//get a blog post by id
+
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: User, attributes: ["name"] }],
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+        {
+          model: Comment,
+          Attributes: ["comment_text"],
+        },
+      ],
     });
+
+    if (!postData) {
+      res.status(404).json({ message: "No post found with this id" });
+      return;
+    }
 
     const post = postData.get({ plain: true });
 
-    res.render("post", {
-      post,
+    res.render("singlePost", {
+      ...post,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -66,4 +81,5 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
+
 module.exports = router;
