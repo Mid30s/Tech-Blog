@@ -68,4 +68,22 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
+router.put("/:id", async (req, res) => {
+  try {
+    const commentId = req.params.id;
+    const updatedCommentBody = req.body.comment_text;
+
+    const comment = await Comment.findOne({ where: { id: commentId } });
+    if (comment) {
+      comment.comment_text = updatedCommentBody;
+      await comment.save();
+      res.status(200).json({ message: "Comment updated" });
+    } else {
+      res.status(404).json({ message: "Comment not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Error updating comment" });
+  }
+});
+
 module.exports = router;

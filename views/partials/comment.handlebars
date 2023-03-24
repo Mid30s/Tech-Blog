@@ -11,8 +11,18 @@
           {{format_date createdAt}}</small></p>
     </div>
   </div>
-  
-  {{#eq comment.user_id  ../req.session.user_id}}
-    <button data-comment-id="{{id}}" class="btn btn-danger btn-sm delete-comment">Delete</button>
-  {{/eq}}
+
+  <button
+    data-comment-id="{{id}}"
+    class="btn btn-danger btn-sm delete-comment"
+  >Delete</button>
+
+  <button
+    type="button"
+    class="btn btn-sm btn-warning edit-comment"
+    data-bs-toggle="modal"
+    data-bs-target="#edit-comment-modal"
+    data-comment-id="{{id}}"
+  >Edit</button>
+
 </li>
