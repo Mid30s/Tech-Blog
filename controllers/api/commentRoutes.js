@@ -68,20 +68,26 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
   try {
     const commentId = req.params.id;
     const updatedCommentBody = req.body.comment_text;
 
     const comment = await Comment.findOne({ where: { id: commentId } });
-    if (comment) {
+
+    if (comment && comment.user_id === req.session.user_id) {
       comment.comment_text = updatedCommentBody;
       await comment.save();
       res.status(200).json({ message: "Comment updated" });
-    } else {
+    } else if (!comment) {
       res.status(404).json({ message: "Comment not found" });
+    } else {
+      res
+        .status(403)
+        .json({ message: "Forbidden: You can only edit your own comments" });
     }
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error updating comment" });
   }
 });

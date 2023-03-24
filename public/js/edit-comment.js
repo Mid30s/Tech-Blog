@@ -29,6 +29,7 @@ document
       });
 
       if (!response.ok) {
+        alert("🚫🚫🚫🚫You can not edit other's comment!🚫🚫🚫🚫");
         throw new Error(`Failed to update the comment: ${response.statusText}`);
       }
 
@@ -37,12 +38,6 @@ document
         .querySelector(`[data-comment-id="${commentId}"]`)
         .closest("li");
       commentElement.querySelector(".col").innerText = newCommentText;
-
-      // Close the modal
-      const editCommentModal = new bootstrap.Modal(
-        document.getElementById("edit-comment-modal")
-      );
-      editCommentModal.hide();
     } catch (error) {
       console.error(`Error updating the comment: ${error.message}`);
     }

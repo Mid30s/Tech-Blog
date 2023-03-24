@@ -66,6 +66,29 @@
     {{else}}
     <p>No comments yet.</p>
     {{/if}}  
+
+    <!-- Edit comment modal -->
+<div class="modal fade" id="edit-comment-modal" tabindex="-1" aria-labelledby="edit-comment-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="edit-comment-modal-label">Edit Comment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-comment-form">
+          <input type="hidden" name="comment_id" id="edit-comment-id">
+          <div class="mb-3">
+            <label for="edit-comment-body" class="form-label">Comment</label>
+            <textarea class="form-control" name="edit_comment_body" id="edit-comment-body" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <script src="/js/edit-post.js"></script>
