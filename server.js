@@ -12,11 +12,11 @@ const helpers = require("./utils/helpers");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up Handlebars.js engine with custom helpers
+// Set up Handlebars.js engine with custom helper
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: "it is a secret",
+  secret: process.env.SESSION_SECRET,
   cookie: {
     maxAge: 300000,
     httpOnly: true,
