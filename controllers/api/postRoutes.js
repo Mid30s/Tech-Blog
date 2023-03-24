@@ -69,6 +69,7 @@ router.put("/:id", withAuth, async (req, res) => {
 // Delete a post by id (with authentication)
 router.delete("/:id", withAuth, async (req, res) => {
   try {
+    console.log(`Attempting to delete post with id: ${req.params.id}`);
     const postData = await Post.destroy({
       where: {
         id: req.params.id,
@@ -80,8 +81,11 @@ router.delete("/:id", withAuth, async (req, res) => {
       return;
     }
 
+    console.log(`Deleted post with id: ${req.params.id}`);
     res.status(200).json(postData);
   } catch (err) {
+    console.error(`Error deleting post with id: ${req.params.id}`);
+    console.error(err);
     res.status(500).json(err);
   }
 });

@@ -2,6 +2,8 @@
 const deletePostHandler = async (event) => {
   event.preventDefault();
 
+  console.log("Delete post handler called");
+
   const id = document.querySelector("input[name=id]").value;
 
   const response = await fetch(`/api/posts/${id}`, {

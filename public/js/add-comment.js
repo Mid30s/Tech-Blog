@@ -2,7 +2,9 @@
 const addCommentHandler = async (event) => {
   event.preventDefault();
 
-  const comment_text = document.querySelector("#comment-body");
+  console.log("addCommentHandler triggered");
+
+  const comment_text = document.querySelector("#comment-body").value.trim();
   const post_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];

@@ -33,7 +33,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <form id="delete-post-form" action="/api/posts/{{post.id}}" method="POST">
+                <form id="delete-post-form" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
@@ -44,7 +44,7 @@
 
     <hr>
 
-    {{!-- Comments --}}
+    {{!-- ADD Comments --}}
     <h2 class="my-4">Add a Comment</h2>
     <form id="add-comment-form">
         <input type="hidden" name="post_id" value="{{post.id}} ">
