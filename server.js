@@ -45,7 +45,8 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
 
-app.use((err, req, res, next) => {
+//debugging
+app.use((err, req, res) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
