@@ -44,11 +44,23 @@ npm install
 ## Usage
 
 To view this application,the following image shows the landing page of the application, or click on the page link that demonstrates the functionality of this project:\
-<https://drive.google.com/file/d/175soxfVuhiEpRKkuQkOpjTqJb7RHzLPO/view>
+<https://infinite-depths-74692.herokuapp.com/>
 
-![Tech-Blog](./assets/images/GET.gif)
+Homepage:
+![Tech-Blog](public/images/homepage.png)
+Login page:
+![Tech-Blog](public/images/login.png)
+Sign-up page:
+![Tech-Blog](public/images/signup.png)
+Dashboard page:
+![Tech-Blog](public/images/login-dashboard.png)
+Create new post page:
+![Tech-Blog](public/images/new-post.png)
+Single post page:
+![Tech-Blog](public/images/single-post.png)
+Edit post page:
+![Tech-Blog](public/images/edit-post.png)
 
-![Tech-Blog](./assets/images/POST-PUT-DELETE.gif)
 
 ## License
 
